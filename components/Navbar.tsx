@@ -46,7 +46,6 @@ export default function Navbar() {
               <p className="heading-font text-lg font-bold tracking-[0.18em] text-white">
                 SEER AI
               </p>
-
               <p className="hidden text-[10px] uppercase tracking-[0.22em] text-seer-lavender/70 sm:block">
                 Sports Intelligence
               </p>
@@ -69,7 +68,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setContractOpen(true)}
-              className="button-glow inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-seer-violet via-seer-electric to-seer-pink px-5 py-2.5 text-sm font-bold text-white shadow-seer transition hover:scale-[1.03] hover:text-white"
+              className="button-glow inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-seer-violet via-seer-electric to-seer-pink px-5 py-2.5 text-sm font-bold text-white shadow-seer transition hover:scale-[1.03]"
             >
               <Copy size={16} />
               Contract Address

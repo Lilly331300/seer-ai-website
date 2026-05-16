@@ -8,7 +8,10 @@ type ComingSoonModalProps = {
   onClose: () => void;
 };
 
-export default function ComingSoonModal({ open, onClose }: ComingSoonModalProps) {
+export default function ComingSoonModal({
+  open,
+  onClose,
+}: ComingSoonModalProps) {
   return (
     <AnimatePresence>
       {open && (
@@ -18,13 +21,10 @@ export default function ComingSoonModal({ open, onClose }: ComingSoonModalProps)
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <motion.button
+          <button
             aria-label="Close modal overlay"
             onClick={onClose}
             className="absolute inset-0 bg-seer-black/80 backdrop-blur-xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
           />
 
           <motion.div

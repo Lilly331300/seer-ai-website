@@ -166,6 +166,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PROBLEM SECTION */}
       <section
         id="problem"
         className="relative overflow-hidden bg-seer-black px-4 py-28 md:px-6"
@@ -260,6 +261,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SOLUTION SECTION */}
       <section
         id="solution"
         className="relative overflow-hidden bg-seer-purple/35 px-4 py-28 md:px-6"
@@ -349,6 +351,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PIPELINE IMAGE SECTION */}
       <section className="relative overflow-hidden bg-seer-black px-4 py-28 md:px-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(110,75,255,0.22),transparent_45%)]" />
 
@@ -384,6 +387,7 @@ export default function Home() {
 
       <HowItWorks />
 
+      {/* FEATURES */}
       <section
         id="features"
         className="relative overflow-hidden bg-seer-black px-4 py-28 md:px-6"
@@ -411,6 +415,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* LIVE DEMO MOCKUP */}
       <section className="relative overflow-hidden bg-seer-purple/35 px-4 py-28 md:px-6">
         <div className="absolute right-0 top-20 h-96 w-96 rounded-full bg-seer-pink/15 blur-3xl" />
 
@@ -492,6 +497,7 @@ export default function Home() {
 
       <SportsCoverage />
 
+      {/* STRATEGIC ADVANTAGE */}
       <section className="relative overflow-hidden bg-seer-black px-4 py-28 md:px-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(51,214,255,0.14),transparent_38%)]" />
 
@@ -557,6 +563,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WHY SEER AI MATTERS */}
       <section className="relative overflow-hidden bg-seer-purple/35 px-4 py-28 md:px-6">
         <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-seer-violet/15 blur-3xl" />
 
@@ -604,6 +611,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* VISION */}
       <section className="relative overflow-hidden bg-seer-black px-4 py-28 md:px-6">
         <div className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-seer-cyan/10 blur-3xl" />
 
@@ -643,6 +651,7 @@ export default function Home() {
 
       <Roadmap />
 
+      {/* WHITEPAPER */}
       <section
         id="whitepaper"
         className="relative overflow-hidden bg-seer-purple/35 px-4 py-28 md:px-6"
