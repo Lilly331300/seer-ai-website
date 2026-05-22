@@ -1,147 +1,113 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import SectionHeader from "@/components/SectionHeader";
-import FeatureCard from "@/components/FeatureCard";
-import HowItWorks from "@/components/HowItWorks";
-import SportsCoverage from "@/components/SportsCoverage";
-import Roadmap from "@/components/Roadmap";
-import WhitepaperCard from "@/components/WhitepaperCard";
-import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 import {
-  Activity,
-  BarChart3,
+  ArrowDownToLine,
+  ArrowRight,
   Bot,
   Brain,
-  CalendarDays,
-  Eye,
-  LineChart,
+  DatabaseZap,
   MessageCircle,
-  Network,
-  RadioTower,
   Search,
-  Share2,
   Sparkles,
   Trophy,
   Zap,
-  ArrowRight,
-  ShieldCheck,
-  Orbit,
+  Calendar,
 } from "lucide-react";
-import { motion } from "framer-motion";
 
-const trustItems = [
-  "Real-Time Data",
-  "Conversational AI",
-  "Social Platform Native",
-  "Contextual Insights",
-  "Multi-Sport Coverage",
-  "Fast Responses",
+const buzzWords = [
+  "Ask sports questions",
+  "Get instant answers",
+  "Powered by live data",
+  "Built for social platforms",
+  "Simple fan intelligence",
+  "See more. Know more.",
 ];
 
-const problemCards = [
+const painPoints = [
   {
     icon: Search,
-    title: "Too many platforms",
-    text: "Fans jump between score apps, news feeds, stats websites, prediction tools, and social discussions.",
-  },
-  {
-    icon: BarChart3,
-    title: "Raw data overload",
-    text: "Tables and numbers are everywhere, but simple interpretation and context are often missing.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Unstructured conversations",
-    text: "Sports discussions happen publicly in real time, but reliable intelligence does not live inside those conversations.",
-  },
-];
-
-const features = [
-  {
-    icon: RadioTower,
-    title: "Real-Time Sports Data",
-    description:
-      "Retrieve live scores, fixtures, standings, team stats, player stats, and historical records from verified data streams.",
+    title: "Fans search everywhere",
+    text: "Scores, fixtures, form, predictions, and insights are scattered across too many platforms.",
   },
   {
     icon: Brain,
-    title: "AI-Powered Intent Understanding",
-    description:
-      "SEER AI understands plain-language questions and identifies the team, league, player, match, or request type.",
+    title: "Data feels too heavy",
+    text: "Most tools show numbers, but fans need clear answers they can understand quickly.",
   },
   {
-    icon: Eye,
-    title: "Contextual Match Insights",
-    description:
-      "Transform sports information into simplified explanations, trends, and useful interpretation.",
-  },
-  {
-    icon: Activity,
-    title: "Team Form Analysis",
-    description:
-      "Summarize recent performance, consistency, momentum, scoring rhythm, and defensive strength.",
-  },
-  {
-    icon: CalendarDays,
-    title: "Fixtures and Standings",
-    description:
-      "Help fans instantly check upcoming matches, league tables, and current competitive positions.",
-  },
-  {
-    icon: BarChart3,
-    title: "Player and Team Statistics",
-    description:
-      "Deliver structured performance data without forcing users to browse through multiple dashboards.",
-  },
-  {
-    icon: LineChart,
-    title: "Smart Predictions",
-    description:
-      "Support future predictive analysis, forecasting, trend intelligence, and momentum indicators.",
-  },
-  {
-    icon: Trophy,
-    title: "Multi-Sport Intelligence",
-    description:
-      "Built to expand beyond football into basketball, tennis, cricket, Formula 1, esports, and more.",
-  },
-  {
-    icon: Share2,
-    title: "Social Platform Distribution",
-    description:
-      "Every public reply becomes discoverable, shareable, and part of the live sports conversation.",
-  },
-  {
-    icon: Zap,
-    title: "Fast Conversational Search",
-    description:
-      "Fans do not need menus, filters, or multiple tabs. They ask, SEER AI understands, and answers arrive fast.",
-  },
-  {
-    icon: Network,
-    title: "Advanced Analytics Layer",
-    description:
-      "SEER AI turns data into clarity by identifying patterns, comparisons, and meaningful signals.",
-  },
-  {
-    icon: Bot,
-    title: "Public Shareable Responses",
-    description:
-      "Answers appear directly inside social conversations, increasing engagement and organic discovery.",
+    icon: MessageCircle,
+    title: "Sports conversations move fast",
+    text: "SEER AI brings instant intelligence into the places where fans already talk and react.",
   },
 ];
 
-const visualBadges = [
+const steps = [
+  {
+    icon: MessageCircle,
+    title: "Ask",
+    text: "A fan asks a sports question in simple language.",
+  },
+  {
+    icon: Bot,
+    title: "Understand",
+    text: "SEER detects the team, player, match, league, and intent.",
+  },
+  {
+    icon: DatabaseZap,
+    title: "Analyze",
+    text: "Live data and AI work together to find the useful context.",
+  },
+  {
+    icon: Zap,
+    title: "Answer",
+    text: "SEER returns a clear, simple insight instantly.",
+  },
+];
+
+const useCases = [
   "Live scores",
-  "Standings",
+  "Fixtures",
+  "Team form",
+  "Match analysis",
   "Predictions",
-  "Fan conversations",
-  "Player stats",
-  "Context",
+  "Fan insights",
+];
+
+const roadmap = [
+  {
+    phase: "Phase 1",
+    status: "Live",
+    title: "Football Core",
+    date: "Q2 2026",
+    text: "Live scores, fixtures, team form, basic AI analysis, match analysis, and predictions.",
+  },
+  {
+    phase: "Phase 2",
+    status: "Near Term",
+    title: "Advanced Insights",
+    date: "Q3 2026",
+    text: "Player stats, head-to-head insights, and smarter team comparisons.",
+  },
+  {
+    phase: "Phase 3",
+    status: "Expansion",
+    title: "Multi-Sport Coverage",
+    date: "Q4 2026",
+    text: "Basketball, tennis, more football leagues, and wider global coverage.",
+  },
+  {
+    phase: "Phase 4",
+    status: "Ecosystem",
+    title: "Platform Layer",
+    date: "Q1 2027",
+    text: "Personalized feeds, alerts, multi-platform access, API layer, and creator tools.",
+  },
 ];
 
 export default function Home() {
@@ -152,11 +118,11 @@ export default function Home() {
 
       <section className="overflow-hidden border-y border-white/10 bg-seer-purple/35 py-5">
         <div className="marquee flex w-[200%] gap-4">
-          {[...trustItems, ...trustItems, ...trustItems, ...trustItems].map(
+          {[...buzzWords, ...buzzWords, ...buzzWords, ...buzzWords].map(
             (item, index) => (
               <div
                 key={`${item}-${index}`}
-                className="flex min-w-fit items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-bold uppercase tracking-[0.2em] text-white/72"
+                className="flex min-w-fit items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-bold uppercase tracking-[0.18em] text-white/70"
               >
                 <Sparkles size={15} className="text-seer-cyan" />
                 {item}
@@ -166,525 +132,369 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROBLEM SECTION */}
       <section
         id="problem"
-        className="relative overflow-hidden bg-seer-black px-4 py-28 md:px-6"
+        className="relative overflow-hidden bg-seer-black px-4 py-24 md:px-6"
       >
-        <div className="absolute left-0 top-20 h-80 w-80 rounded-full bg-seer-pink/15 blur-3xl" />
-        <div className="absolute bottom-10 right-0 h-96 w-96 rounded-full bg-seer-violet/15 blur-3xl" />
+        <div className="absolute left-0 top-16 h-80 w-80 rounded-full bg-seer-pink/15 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-seer-cyan/10 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <SectionHeader
-                align="left"
-                eyebrow="The Problem"
-                title="Sports information is fragmented."
-                description="Fans are not short of data. They are short of context, speed, and clarity. Today, the average fan jumps between different apps just to understand what is happening."
-              />
-
-              <div className="mt-10 grid gap-5">
-                {problemCards.map((card, index) => {
-                  const Icon = card.icon;
-
-                  return (
-                    <motion.div
-                      key={card.title}
-                      initial={{ opacity: 0, x: -28 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-80px" }}
-                      transition={{ delay: index * 0.08, duration: 0.6 }}
-                      className="group rounded-3xl border border-white/10 bg-white/[0.045] p-5 backdrop-blur-xl transition hover:border-seer-cyan/40 hover:shadow-cyan"
-                    >
-                      <div className="flex gap-4">
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-seer-violet/20 text-seer-cyan ring-1 ring-white/10">
-                          <Icon size={22} />
-                        </div>
-
-                        <div>
-                          <h3 className="heading-font text-xl font-bold text-white">
-                            {card.title}
-                          </h3>
-                          <p className="mt-2 text-sm leading-7 text-white/62">
-                            {card.text}
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92, x: 40 }}
-              whileInView={{ opacity: 1, scale: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.85 }}
-              className="relative"
-            >
-              <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-r from-seer-violet/25 via-seer-pink/20 to-seer-cyan/20 blur-3xl" />
-
-              <div className="relative overflow-hidden rounded-[2.2rem] border border-white/10 bg-white/[0.055] p-3 shadow-seer backdrop-blur-2xl">
-                <div className="relative aspect-video overflow-hidden rounded-[1.6rem]">
-                  <Image
-                    src="/images/problem-fragmented-apps.png"
-                    alt="Fragmented sports information visual"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-seer-black/70 via-transparent to-transparent" />
-                </div>
-
-                <div className="absolute bottom-7 left-7 right-7 rounded-3xl border border-white/10 bg-seer-black/70 p-5 backdrop-blur-2xl">
-                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-seer-cyan">
-                    The old experience
-                  </p>
-                  <h3 className="mt-2 heading-font text-2xl font-bold text-white">
-                    Too many tabs. Too little clarity.
-                  </h3>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {visualBadges.map((badge) => (
-                      <span
-                        key={badge}
-                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/65"
-                      >
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* SOLUTION SECTION */}
-      <section
-        id="solution"
-        className="relative overflow-hidden bg-seer-purple/35 px-4 py-28 md:px-6"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(51,214,255,0.18),transparent_32%)]" />
-        <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-seer-pink/15 blur-3xl" />
-
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div
-            initial={{ opacity: 0, y: 26 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
           >
-            <SectionHeader
-              align="left"
-              eyebrow="The Solution"
-              title="SEER AI turns sports questions into instant intelligence."
-              description="Instead of searching across apps, fans ask SEER AI directly on social platforms and receive instant, intelligent, contextual responses powered by real-time sports data."
-            />
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-seer-cyan">
+              The Problem
+            </p>
+            <h2 className="mt-5 heading-font text-4xl font-black leading-tight tracking-tight md:text-6xl">
+              Sports fans do not need more noise. They need faster clarity.
+            </h2>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-white/64">
+              SEER AI removes the gap between a sports question and a useful
+              answer.
+            </p>
 
-            <div className="mt-8 grid gap-4">
-              {[
-                "Ask naturally in plain language",
-                "SEER AI understands the intent",
-                "Verified sports data powers the answer",
-                "Contextual insight is delivered publicly",
-              ].map((item, index) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, x: -18 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
-                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl"
-                >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-seer-cyan/10 text-seer-cyan">
-                    <ShieldCheck size={18} />
-                  </div>
-                  <p className="text-sm font-semibold text-white/72">{item}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+            <div className="mt-9 grid gap-4">
+              {painPoints.map((point, index) => {
+                const Icon = point.icon;
 
-          <div className="grid gap-5">
-            <motion.div
-              initial={{ opacity: 0, x: 28 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.65 }}
-              className="rounded-3xl border border-red-300/10 bg-white/[0.04] p-6 backdrop-blur-xl"
-            >
-              <p className="text-sm font-bold uppercase tracking-[0.24em] text-white/45">
-                Before
-              </p>
-              <h3 className="mt-3 heading-font text-2xl font-bold">
-                Multiple apps. Delayed updates. Raw stats.
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-white/60">
-                Fans move between tabs, apps, websites, and timelines to find
-                scores, tables, context, and analysis.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 28 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.65, delay: 0.12 }}
-              className="relative overflow-hidden rounded-3xl border border-seer-cyan/30 bg-gradient-to-br from-seer-violet/20 to-seer-cyan/10 p-6 shadow-cyan"
-            >
-              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-seer-cyan/20 blur-3xl" />
-
-              <p className="relative text-sm font-bold uppercase tracking-[0.24em] text-seer-cyan">
-                After
-              </p>
-              <h3 className="relative mt-3 heading-font text-2xl font-bold">
-                Ask SEER AI → AI understands → Data verifies → Insight responds.
-              </h3>
-              <p className="relative mt-3 text-sm leading-7 text-white/70">
-                The answer arrives where the conversation is already happening,
-                turning public sports discussion into public sports intelligence.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* PIPELINE IMAGE SECTION */}
-      <section className="relative overflow-hidden bg-seer-black px-4 py-28 md:px-6">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(110,75,255,0.22),transparent_45%)]" />
-
-        <div className="relative mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="Intelligence Pipeline"
-            title="From fan question to public sports insight in seconds."
-            description="SEER AI connects plain-language queries, intent detection, live data, and an AI intelligence layer into one fast conversational system."
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 34, scale: 0.96 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-90px" }}
-            transition={{ duration: 0.85 }}
-            className="relative mt-14"
-          >
-            <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-r from-seer-violet/20 via-seer-cyan/20 to-seer-pink/20 blur-3xl" />
-
-            <div className="relative overflow-hidden rounded-[2.3rem] border border-white/10 bg-white/[0.055] p-3 shadow-seer backdrop-blur-2xl">
-              <div className="relative aspect-video overflow-hidden rounded-[1.7rem]">
-                <Image
-                  src="/images/seer-intelligence-pipeline.png"
-                  alt="SEER AI intelligence pipeline"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <HowItWorks />
-
-      {/* FEATURES */}
-      <section
-        id="features"
-        className="relative overflow-hidden bg-seer-black px-4 py-28 md:px-6"
-      >
-        <div className="absolute right-0 top-32 h-96 w-96 rounded-full bg-seer-violet/20 blur-3xl" />
-        <div className="absolute bottom-10 left-0 h-96 w-96 rounded-full bg-seer-cyan/10 blur-3xl" />
-
-        <div className="relative mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="Features"
-            title="Everything fans need to understand the game faster."
-            description="SEER AI combines live data, conversational AI, contextual analysis, and social distribution into one intelligent sports layer."
-          />
-
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature) => (
-              <FeatureCard
-                key={feature.title}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* LIVE DEMO MOCKUP */}
-      <section className="relative overflow-hidden bg-seer-purple/35 px-4 py-28 md:px-6">
-        <div className="absolute right-0 top-20 h-96 w-96 rounded-full bg-seer-pink/15 blur-3xl" />
-
-        <div className="relative mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="Live Demo Mockup"
-            title="Sports answers that feel like conversation."
-            description="This is a frontend mockup for now. Later, you can connect it to a real backend, sports data APIs, and social platform integrations."
-          />
-
-          <div className="mt-14 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <motion.div
-              initial={{ opacity: 0, x: -40, scale: 0.95 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-90px" }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="absolute -inset-7 rounded-[3rem] bg-gradient-to-r from-seer-violet/25 via-seer-cyan/20 to-seer-pink/20 blur-3xl" />
-
-              <div className="relative overflow-hidden rounded-[2.2rem] border border-white/10 bg-white/[0.055] p-3 shadow-seer backdrop-blur-2xl">
-                <div className="relative aspect-video overflow-hidden rounded-[1.6rem]">
-                  <Image
-                    src="/images/ai-query-mockup.png"
-                    alt="SEER AI social sports conversation mockup"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 34 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-90px" }}
-              transition={{ duration: 0.75 }}
-              className="rounded-[2rem] border border-white/10 bg-seer-black/70 p-5 shadow-seer backdrop-blur-2xl md:p-8"
-            >
-              <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="text-sm font-semibold text-white/45">User</p>
-                <p className="mt-2 text-lg text-white">
-                  @SeerAI Arsenal last 5 games?
-                </p>
-              </div>
-
-              <div className="mt-5 rounded-3xl border border-seer-cyan/25 bg-gradient-to-br from-seer-violet/20 to-seer-cyan/10 p-5">
-                <p className="text-sm font-semibold text-seer-cyan">SEER AI</p>
-                <p className="mt-2 leading-8 text-white/80">
-                  Arsenal’s recent form shows 4 wins and 1 draw. They have
-                  scored consistently, conceded few goals, and remain one of the
-                  strongest teams in current league momentum.
-                </p>
-              </div>
-
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
-                {[
-                  "League table request",
-                  "Next fixture request",
-                  "Top scorers request",
-                  "Form comparison request",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.045] p-4 text-sm text-white/68 transition hover:border-seer-cyan/35 hover:text-white"
+                return (
+                  <motion.div
+                    key={point.title}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 }}
+                    className="rounded-3xl border border-white/10 bg-white/[0.045] p-5 backdrop-blur-xl transition hover:border-seer-cyan/40"
                   >
-                    {item}
-                    <ArrowRight
-                      size={16}
-                      className="text-seer-cyan transition group-hover:translate-x-1"
-                    />
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <SportsCoverage />
-
-      {/* STRATEGIC ADVANTAGE */}
-      <section className="relative overflow-hidden bg-seer-black px-4 py-28 md:px-6">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(51,214,255,0.14),transparent_38%)]" />
-
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, x: -34 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-90px" }}
-            transition={{ duration: 0.75 }}
-          >
-            <SectionHeader
-              align="left"
-              eyebrow="Strategic Advantage"
-              title="Built where sports conversations already happen."
-              description="SEER AI is distribution-first. Every public interaction increases discovery, creates shareable moments, and strengthens network effects."
-            />
-
-            <div className="mt-8 grid gap-5">
-              {["Engagement", "Visibility", "Growth"].map((item, index) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
-                  className="flex items-center gap-5 rounded-3xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-seer-violet/25 text-seer-cyan">
-                    {index + 1}
-                  </div>
-                  <div>
-                    <h3 className="heading-font text-xl font-bold">{item}</h3>
-                    <p className="mt-1 text-sm text-white/55">
-                      Public answers create more reach, more conversations, and
-                      more discovery.
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+                    <div className="flex gap-4">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-seer-violet/20 text-seer-cyan ring-1 ring-white/10">
+                        <Icon size={22} />
+                      </div>
+                      <div>
+                        <h3 className="heading-font text-xl font-bold">
+                          {point.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-7 text-white/60">
+                          {point.text}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 38, scale: 0.95 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-90px" }}
+            initial={{ opacity: 0, scale: 0.94, x: 34 }}
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.85 }}
             className="relative"
           >
-            <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-r from-seer-cyan/20 via-seer-violet/25 to-seer-pink/20 blur-3xl" />
-
+            <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-r from-seer-violet/25 via-seer-pink/20 to-seer-cyan/20 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2.3rem] border border-white/10 bg-white/[0.055] p-3 shadow-seer backdrop-blur-2xl">
               <div className="relative aspect-video overflow-hidden rounded-[1.7rem]">
                 <Image
-                  src="/images/social-growth-loop.png"
-                  alt="SEER AI social growth loop"
+                  src="/images/problem-fragmented-apps.png"
+                  alt="Fragmented sports apps"
                   fill
                   className="object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-seer-black via-seer-black/15 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 rounded-3xl border border-white/10 bg-seer-black/75 p-5 backdrop-blur-2xl">
+                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-seer-cyan">
+                    Old way
+                  </p>
+                  <h3 className="mt-2 heading-font text-2xl font-bold">
+                    Too many tabs. Too little clarity.
+                  </h3>
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* WHY SEER AI MATTERS */}
-      <section className="relative overflow-hidden bg-seer-purple/35 px-4 py-28 md:px-6">
-        <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-seer-violet/15 blur-3xl" />
+      <section
+        id="how-it-works"
+        className="relative overflow-hidden bg-seer-purple/35 px-4 py-24 md:px-6"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(51,214,255,0.16),transparent_34%)]" />
+        <div className="relative mx-auto max-w-7xl text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-seer-cyan">
+            How It Works
+          </p>
+          <h2 className="mx-auto mt-5 max-w-4xl heading-font text-4xl font-black leading-tight tracking-tight md:text-6xl">
+            Ask a sports question. SEER AI gives you the answer.
+          </h2>
 
+          <div className="mt-14 grid gap-5 md:grid-cols-4">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+
+              return (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 26 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-70px" }}
+                  transition={{ delay: index * 0.08 }}
+                  className="group relative rounded-[2rem] border border-white/10 bg-white/[0.055] p-6 text-left backdrop-blur-xl transition hover:-translate-y-2 hover:border-seer-cyan/35"
+                >
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-seer-cyan/10 text-seer-cyan ring-1 ring-white/10">
+                    <Icon size={25} />
+                  </div>
+                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/38">
+                    Step 0{index + 1}
+                  </p>
+                  <h3 className="mt-3 heading-font text-2xl font-bold">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-white/60">
+                    {step.text}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="demo"
+        className="relative overflow-hidden bg-seer-black px-4 py-24 md:px-6"
+      >
+        <div className="absolute right-0 top-20 h-96 w-96 rounded-full bg-seer-pink/15 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-seer-violet/20 blur-3xl" />
+
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <motion.div
+            initial={{ opacity: 0, x: -34, scale: 0.96 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-r from-seer-violet/20 via-seer-cyan/20 to-seer-pink/20 blur-3xl" />
+            <div className="relative overflow-hidden rounded-[2.3rem] border border-white/10 bg-white/[0.055] p-3 shadow-seer backdrop-blur-2xl">
+              <div className="relative aspect-video overflow-hidden rounded-[1.7rem]">
+                <Image
+                  src="/images/ai-query-mockup.png"
+                  alt="SEER AI query mockup"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 34 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.75 }}
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-seer-cyan">
+              Product Feel
+            </p>
+            <h2 className="mt-5 heading-font text-4xl font-black leading-tight tracking-tight md:text-6xl">
+              Like chatting with a sports analyst.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-white/64">
+              No overloaded dashboards. No complicated menus. Just simple sports
+              intelligence when fans need it.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              {useCases.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/70"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-9 rounded-3xl border border-seer-cyan/25 bg-gradient-to-br from-seer-violet/20 to-seer-cyan/10 p-5 shadow-cyan">
+              <p className="text-sm font-semibold text-white/45">Fan asks</p>
+              <p className="mt-2 text-xl font-bold text-white">
+                “Who has better form going into this match?”
+              </p>
+              <div className="mt-5 rounded-2xl border border-white/10 bg-seer-black/55 p-4">
+                <p className="text-sm font-semibold text-seer-cyan">SEER AI</p>
+                <p className="mt-2 leading-7 text-white/75">
+                  “Team A has stronger recent momentum, but Team B has a better
+                  defensive record. Expect a close match.”
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section
+        id="roadmap"
+        className="relative overflow-hidden bg-seer-purple/35 px-4 py-24 md:px-6"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(110,75,255,0.2),transparent_35%)]" />
         <div className="relative mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="Why SEER AI Matters"
-            title="The future of sports interaction is not searching. It is asking."
-            description="SEER AI changes how fans move from information to understanding."
-          />
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-seer-cyan">
+              Roadmap
+            </p>
+            <h2 className="mt-5 heading-font text-4xl font-black leading-tight tracking-tight md:text-6xl">
+              Built in focused phases.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-white/64">
+              SEER AI starts with football intelligence, then expands into
+              deeper insights, more sports, and a wider platform ecosystem.
+            </p>
+          </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: "From Searching to Asking",
-                text: "Users do not need to navigate many apps. They simply ask naturally.",
-              },
-              {
-                title: "From Raw Data to Intelligent Insight",
-                text: "SEER AI transforms numbers into context, clarity, and understanding.",
-              },
-              {
-                title: "From Apps to Real-Time Conversation",
-                text: "Sports intelligence becomes part of social spaces where fans already engage.",
-              },
-            ].map((item, index) => (
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {roadmap.map((item, index) => (
               <motion.div
-                key={item.title}
+                key={item.phase}
                 initial={{ opacity: 0, y: 26 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
+                viewport={{ once: true, margin: "-70px" }}
                 transition={{ delay: index * 0.08 }}
-                whileHover={{ y: -8 }}
-                className="glass-card rounded-3xl p-7 transition hover:border-seer-cyan/35 hover:shadow-cyan"
+                className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.055] p-6 backdrop-blur-xl transition hover:-translate-y-2 hover:border-seer-cyan/35"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-seer-cyan/10 text-seer-cyan">
-                  <Orbit size={23} />
+                <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-seer-cyan/10 blur-2xl" />
+
+                <div className="relative z-10">
+                  <div className="mb-6 flex h-13 w-13 items-center justify-center rounded-2xl bg-seer-cyan/10 text-seer-cyan ring-1 ring-white/10">
+                    <Calendar size={23} />
+                  </div>
+
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-seer-cyan">
+                    {item.phase} · {item.status}
+                  </p>
+
+                  <h3 className="mt-4 heading-font text-2xl font-bold text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm font-bold text-seer-lavender">
+                    {item.date}
+                  </p>
+
+                  <p className="mt-4 text-sm leading-7 text-white/60">
+                    {item.text}
+                  </p>
                 </div>
-                <h3 className="heading-font text-2xl font-bold">
-                  {item.title}
-                </h3>
-                <p className="mt-4 leading-7 text-white/62">{item.text}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* VISION */}
-      <section className="relative overflow-hidden bg-seer-black px-4 py-28 md:px-6">
-        <div className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-seer-cyan/10 blur-3xl" />
-
-        <div className="relative mx-auto max-w-5xl text-center">
-          <SectionHeader
-            eyebrow="Vision"
-            title="The Global Sports Intelligence Layer"
-            description="SEER AI is designed to evolve beyond a simple scores tool into universal sports intelligence infrastructure for fans, creators, analysts, communities, and future conversational platforms."
-          />
-
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {[
-              "Multi-sport coverage",
-              "Predictive analysis",
-              "Performance forecasting",
-              "Trend intelligence",
-              "Web interface",
-              "Mobile ecosystem",
-              "Messaging platforms",
-              "Creator tools",
-              "Sports intelligence APIs",
-            ].map((item, index) => (
-              <motion.span
-                key={item}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.04 }}
-                className="rounded-full border border-white/10 bg-white/[0.05] px-5 py-3 text-sm font-semibold text-white/68 backdrop-blur-xl"
-              >
-                {item}
-              </motion.span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Roadmap />
-
-      {/* WHITEPAPER */}
       <section
         id="whitepaper"
-        className="relative overflow-hidden bg-seer-purple/35 px-4 py-28 md:px-6"
+        className="relative overflow-hidden bg-seer-black px-4 py-24 md:px-6"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(214,44,255,0.15),transparent_35%),radial-gradient(circle_at_80%_60%,rgba(51,214,255,0.14),transparent_35%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(110,75,255,0.24),transparent_42%)]" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div
-            initial={{ opacity: 0, x: -34 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-90px" }}
-            transition={{ duration: 0.75 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7 }}
           >
-            <SectionHeader
-              align="left"
-              eyebrow="Whitepaper"
-              title="Read the SEER AI Whitepaper"
-              description="Explore the full vision, architecture, market opportunity, and intelligence model behind SEER AI."
-            />
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-seer-cyan">
+              SEER AI Whitepaper
+            </p>
+            <h2 className="mt-5 heading-font text-4xl font-black leading-tight tracking-tight md:text-6xl">
+              Sports intelligence built for the next generation of fans.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-white/64">
+              Read the whitepaper to explore the full SEER AI ecosystem, from
+              live data and AI insights to fan engagement and future platform
+              growth.
+            </p>
+
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/whitepapers/SEER-AI-Whitepaper.pdf"
+                className="button-glow inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-seer-violet via-seer-electric to-seer-pink px-8 py-4 text-sm font-bold text-white transition hover:scale-[1.03]"
+              >
+                Download Whitepaper
+                <ArrowDownToLine size={17} />
+              </Link>
+
+              <Link
+                href="/whitepaper"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/7 px-8 py-4 text-sm font-bold text-white backdrop-blur-xl transition hover:border-seer-cyan/50"
+              >
+                View Whitepaper Page
+                <ArrowRight size={17} />
+              </Link>
+            </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 34, scale: 0.96 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-90px" }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8 }}
+            className="relative"
           >
-            <WhitepaperCard />
+            <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-r from-seer-cyan/20 via-seer-violet/25 to-seer-pink/20 blur-3xl" />
+            <div className="relative overflow-hidden rounded-[2.3rem] border border-white/10 bg-white/[0.055] p-3 shadow-seer backdrop-blur-2xl">
+              <div className="relative aspect-video overflow-hidden rounded-[1.7rem]">
+                <Image
+                  src="/images/whitepaper-preview.png"
+                  alt="SEER AI whitepaper preview"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      <CTA />
+      <section className="relative overflow-hidden bg-seer-black px-4 py-24 md:px-6">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(214,44,255,0.22),transparent_36%)]" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.75 }}
+          className="relative mx-auto max-w-5xl overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.055] p-8 text-center shadow-seer backdrop-blur-2xl md:p-14"
+        >
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(110,75,255,0.16),transparent_36%,rgba(51,214,255,0.1))]" />
+
+          <div className="relative z-10">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-seer-cyan/10 text-seer-cyan ring-1 ring-white/10">
+              <Trophy size={30} />
+            </div>
+
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-seer-cyan">
+              SEER AI
+            </p>
+
+            <h2 className="mt-5 heading-font text-4xl font-black tracking-tight md:text-6xl">
+              See more. Know more. Win more.
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/66">
+              Simple sports intelligence for fans, communities, and the future
+              of AI-powered sports conversations.
+            </p>
+          </div>
+        </motion.div>
+      </section>
+
       <Footer />
     </main>
   );

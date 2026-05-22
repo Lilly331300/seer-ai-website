@@ -8,11 +8,10 @@ import ComingSoonModal from "./ComingSoonModal";
 
 const links = [
   { label: "Problem", href: "/#problem" },
-  { label: "Solution", href: "/#solution" },
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Features", href: "/#features" },
-  { label: "Sports", href: "/#sports" },
+  { label: "Demo", href: "/#demo" },
   { label: "Roadmap", href: "/#roadmap" },
+  { label: "Whitepaper", href: "/#whitepaper" },
 ];
 
 export default function Footer() {
@@ -44,8 +43,8 @@ export default function Footer() {
             </Link>
 
             <p className="mt-5 max-w-md text-sm leading-7 text-white/58">
-              SEER AI is a real-time sports intelligence layer that turns social
-              platforms into conversational sports ecosystems.
+              SEER AI turns live sports data into simple answers fans can use
+              inside real conversations.
             </p>
 
             <p className="mt-5 max-w-xl text-xs leading-6 text-white/40">
@@ -59,6 +58,7 @@ export default function Footer() {
             <h4 className="heading-font text-lg font-bold text-white">
               Quick Links
             </h4>
+
             <div className="mt-5 grid gap-3">
               {links.map((link) => (
                 <Link
@@ -76,12 +76,20 @@ export default function Footer() {
             <h4 className="heading-font text-lg font-bold text-white">
               Resources
             </h4>
+
             <div className="mt-5 grid gap-3">
               <Link
                 href="/whitepaper"
                 className="text-sm text-white/58 hover:text-seer-cyan"
               >
-                Whitepaper
+                Whitepaper Page
+              </Link>
+
+              <Link
+                href="/whitepapers/SEER-AI-Whitepaper.pdf"
+                className="text-sm text-white/58 hover:text-seer-cyan"
+              >
+                Download Whitepaper
               </Link>
 
               <button

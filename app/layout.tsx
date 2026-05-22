@@ -16,9 +16,9 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
-  title: "SEER AI | Real-Time AI Sports Intelligence",
+  title: "SEER AI | Ask Sports Questions. Get Instant Intelligence.",
   description:
-    "SEER AI is an AI-powered sports intelligence engine that delivers real-time data, contextual insights, smart predictions, and conversational sports analysis across social platforms.",
+    "SEER AI turns live sports data into simple conversational answers for fans, creators, and sports communities.",
   keywords: [
     "SEER AI",
     "sports intelligence",
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     apple: "/images/seer-logo.png",
   },
   openGraph: {
-    title: "SEER AI | Real-Time AI Sports Intelligence",
+    title: "SEER AI | Ask Sports Questions. Get Instant Intelligence.",
     description:
-      "Ask sports questions in plain language and get instant, intelligent, contextual responses.",
+      "Ask sports questions in plain language and get simple answers powered by live sports data.",
     url: "http://localhost:3000",
     siteName: "SEER AI",
     images: [

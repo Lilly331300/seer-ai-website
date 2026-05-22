@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, Copy } from "lucide-react";
+import { Copy, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ComingSoonModal from "./ComingSoonModal";
@@ -10,12 +10,10 @@ import ComingSoonModal from "./ComingSoonModal";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Problem", href: "/#problem" },
-  { label: "Solution", href: "/#solution" },
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Features", href: "/#features" },
-  { label: "Sports", href: "/#sports" },
+  { label: "Demo", href: "/#demo" },
   { label: "Roadmap", href: "/#roadmap" },
-  { label: "Whitepaper", href: "/whitepaper" },
+  { label: "Whitepaper", href: "/#whitepaper" },
 ];
 
 export default function Navbar() {
@@ -41,7 +39,6 @@ export default function Navbar() {
                 priority
               />
             </div>
-
             <div>
               <p className="heading-font text-lg font-bold tracking-[0.18em] text-white">
                 SEER AI
@@ -52,7 +49,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <div className="hidden items-center gap-7 lg:flex">
+          <div className="hidden items-center gap-6 lg:flex">
             {navItems.map((item) => (
               <Link
                 href={item.href}
@@ -64,16 +61,14 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden items-center gap-3 lg:flex">
-            <button
-              type="button"
-              onClick={() => setContractOpen(true)}
-              className="button-glow inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-seer-violet via-seer-electric to-seer-pink px-5 py-2.5 text-sm font-bold text-white shadow-seer transition hover:scale-[1.03]"
-            >
-              <Copy size={16} />
-              Contract Address
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={() => setContractOpen(true)}
+            className="button-glow hidden items-center gap-2 rounded-full bg-gradient-to-r from-seer-violet via-seer-electric to-seer-pink px-5 py-2.5 text-sm font-bold text-white transition hover:scale-[1.03] lg:inline-flex"
+          >
+            <Copy size={16} />
+            Contract Address
+          </button>
 
           <button
             onClick={() => setOpen((value) => !value)}
@@ -108,7 +103,7 @@ export default function Navbar() {
                   setOpen(false);
                   setContractOpen(true);
                 }}
-                className="button-glow mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-seer-violet via-seer-electric to-seer-pink px-4 py-3 text-center text-sm font-bold text-white"
+                className="button-glow mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-seer-violet via-seer-electric to-seer-pink px-4 py-3 text-sm font-bold text-white"
               >
                 <Copy size={16} />
                 Contract Address
