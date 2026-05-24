@@ -85,16 +85,19 @@ select {
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(138, 92, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(138, 92, 255, 0.06) 1px, transparent 1px);
-  background-size: 56px 56px;
+    linear-gradient(rgba(138, 92, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(138, 92, 255, 0.07) 1px, transparent 1px);
+  background-size: 52px 52px;
+  animation: gridShift 18s linear infinite;
 }
 
 .text-gradient {
   background: linear-gradient(90deg, #ffffff, #c9b8ff, #33d6ff, #d62cff);
+  background-size: 220% 220%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: gradientMove 4s ease-in-out infinite;
 }
 
 .button-glow {
@@ -107,8 +110,16 @@ select {
   animation: marquee 28s linear infinite;
 }
 
+.marquee-fast {
+  animation: marquee 18s linear infinite;
+}
+
 .float-slow {
   animation: floatSlow 6s ease-in-out infinite;
+}
+
+.shadow-cyan {
+  box-shadow: 0 0 40px rgba(51, 214, 255, 0.25);
 }
 
 @keyframes marquee {
@@ -129,5 +140,26 @@ select {
 
   50% {
     transform: translateY(-14px);
+  }
+}
+
+@keyframes gridShift {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 52px 52px;
+  }
+}
+
+@keyframes gradientMove {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
   }
 }
