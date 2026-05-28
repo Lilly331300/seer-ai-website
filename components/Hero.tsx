@@ -14,8 +14,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import ComingSoonModal from "./ComingSoonModal";
 
-const miniPoints = ["Ask", "Analyze", "Answer"];
-
 const floatingPoints = [
   {
     icon: Brain,
@@ -52,6 +50,18 @@ const particles = [
   { top: "80%", left: "55%", delay: 0.1 },
   { top: "86%", left: "90%", delay: 0.9 },
 ];
+
+function XLogo() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="h-5 w-5 fill-current"
+    >
+      <path d="M18.244 2H21.5l-7.11 8.126L22.75 22h-6.55l-5.13-6.708L5.2 22H1.94l7.604-8.69L1.53 2h6.716l4.64 6.135L18.244 2Zm-1.143 17.91h1.804L7.26 3.98H5.324L17.101 19.91Z" />
+    </svg>
+  );
+}
 
 export default function Hero() {
   const [contractOpen, setContractOpen] = useState(false);
@@ -124,29 +134,25 @@ export default function Hero() {
                 Fast, clear sports answers powered by live data and AI analysis.
               </p>
 
-              <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-                {miniPoints.map((item, index) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <motion.div
-                      initial={{ opacity: 0, y: 14 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        duration: 0.4,
-                        delay: 0.18 + index * 0.08,
-                      }}
-                      className="rounded-2xl border border-white/10 bg-white/7 px-5 py-3 text-sm font-bold text-white/85 backdrop-blur-xl"
-                    >
-                      {item}
-                    </motion.div>
-
-                    {index < miniPoints.length - 1 && (
-                      <ArrowRight
-                        size={16}
-                        className="hidden text-seer-cyan/70 sm:block"
-                      />
-                    )}
-                  </div>
-                ))}
+              <div className="mt-8 flex justify-center lg:justify-start">
+                <motion.a
+                  href="https://x.com/officialseerai1?s=21"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.18 }}
+                  className="group inline-flex items-center justify-center gap-3 rounded-full border border-seer-cyan/30 bg-white/7 px-7 py-4 text-sm font-black uppercase tracking-[0.14em] text-white backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-seer-cyan/60 hover:bg-white/10 hover:shadow-cyan"
+                >
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-seer-black transition duration-300 group-hover:scale-110">
+                    <XLogo />
+                  </span>
+                  Get Answers On X
+                  <ArrowRight
+                    size={17}
+                    className="text-seer-cyan transition duration-300 group-hover:translate-x-1"
+                  />
+                </motion.a>
               </div>
 
               <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
